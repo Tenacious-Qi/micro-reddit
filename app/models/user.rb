@@ -3,7 +3,8 @@
 # data model for users of micro-reddit service
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
-  
+  has_many :comments, dependent: :destroy
+
   validates :username, presence: true, uniqueness: true,
                        length: { in: 3..20, message: 'username must be between 3 and 20 characters' }
   validates :password, presence: true,
