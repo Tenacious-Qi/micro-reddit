@@ -3,6 +3,7 @@
 # models a User's post
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :comments
 
   validates :title, presence: true,
                     length: { in: 1..300, message: 'title must be between 1 and 300 characters' }
